@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus
+  namespace: monitor-ns
+spec:
+  replicas: 1  # Adjust as needed
+  selector:
+    matchLabels:
+      app: prometheus
+  template:
+    metadata:
+      labels:
+        app: prometheus
+    spec:
+      securityContext:
+        fsGroup: 1000  # Group ID for Prometheus
+      containers:
+        - name: prometheus
+          image: prom/prometheus
+          ports:
+            - containerPort: 9090
+          volumeMounts:
+            - name: prometheus-storage
+              mountPath: /prometheus
+      volumes:
+        - name: prometheus-storage
+          persistentVolumeClaim:
+            claimName: prometheus-pvc

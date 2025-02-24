@@ -1,0 +1,5 @@
+apiVersion: v2
+name: prometheus-stack
+description: A Helm chart for Prometheus, Grafana, and Alertmanager
+version: 0.1.0
+appVersion: "1.0"

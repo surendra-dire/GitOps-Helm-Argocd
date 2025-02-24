@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hpa-apache
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/ankit20000/Helm-Argocd.git'
+    path: hpa
+    targetRevision: helm_argo
+  destination:
+    server: 'https://kubernetes.default.svc'
+    #server: 'https://F0E2F8224962B7004DFC3766599999E1.gr7.ap-south-1.eks.amazonaws.com'
+    namespace: petapp
+  syncPolicy:
+     automated:
+       selfHeal: true
+       prune: true

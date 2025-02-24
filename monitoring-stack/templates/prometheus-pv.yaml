@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: prometheus-pv
+  namespace: monitor-ns  # Specify the namespace here
+spec:
+  capacity:
+    storage: "10Gi"  # Adjust this according to your storage needs
+  accessModes:
+    - ReadWriteOnce
+  hostPath:  # This is for local testing; change it for production
+    path: /mnt/data/prometheus  # Change this path as needed
+  # Uncomment and set storageClassName if you're using a specific storage class
+  # storageClassName: <your-storage-class>

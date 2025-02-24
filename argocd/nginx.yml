@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginxan
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/ankit20000/Helm-Argocd.git'
+    targetRevision: helm_argo
+    path: manifest
+  destination:
+    server: 'https://C70C71D361A19FAD7936673BC6A70BB7.gr7.ap-southeast-2.eks.amazonaws.com'
+    namespace: default
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true  

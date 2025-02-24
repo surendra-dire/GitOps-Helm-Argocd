@@ -1,0 +1,16 @@
+replicaCount: 2
+
+grafana:
+  adminPassword: "supersecurepassword"
+
+prometheus:
+  alertingEndpoints:
+    - "alertmanager:9093"
+  storageSize: "10Gi"
+  resources:
+    requests:
+      memory: "500Mi"
+      cpu: "250m"
+    limits:
+      memory: "1Gi"
+      cpu: "500m"

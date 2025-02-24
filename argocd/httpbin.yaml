@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ankitdechart-app
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://ankit20000.github.io/charts
+    chart: ankitchart
+    targetRevision: 0.1.0
+    helm:
+      # Only override specific values here
+      values: |
+        replicaCount: 1
+        image:
+          repository: nginx
+        service:
+          type: NodePort    
+
+  destination:
+    server: 'https://C70C71D361A19FAD7936673BC6A70BB7.gr7.ap-southeast-2.eks.amazonaws.com'
+
+    namespace: default  # Change the namespace where the app will be deployed
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
