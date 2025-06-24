@@ -19,17 +19,24 @@ Step 5: Expose the ArgoCD Server
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'  
 kubectl get svc -n argocd argocd-server  
 Visit https://<EXTERNAL-IP> 
- Port-Forwarding (Temporary Local Access)
+Port-Forwarding (Temporary Local Access)
 kubectl port-forward svc/argocd-server -n argocd 8080:443  
 
 Login to ArgoCD:  
 Retrieve the Initial Admin Password:  
-kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d  
+kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d  [linux]
+kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | ForEach-Object { [System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($_)) } [windows]
 Username- Admin  
 Pasword-   
 
 
 
+
+
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+kubectl port-forward svc/petapp-service 8080:8080
+
+minikube addons enable ingress
 
 # Step - 1 : Create EKS Management Host in AWS #
 
