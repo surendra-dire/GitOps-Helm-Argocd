@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: petapp
-        image: surendradev101/petapp:29cbe482fb2c4500fbfabf3af641ffefb2640100                 # You can specify a different version if needed
+        image: surendradev101/petapp:21433a6c8106c40ebae43bca46faac2fa5aa146b
         ports:
         - containerPort: 8080                                                                 # This should match the targetPort in the Service
