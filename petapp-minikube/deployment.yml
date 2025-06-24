@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petapp-deployment-devops
+spec:
+  replicas: 1 # You can change the number of replicas as needed
+  selector:
+    matchLabels:
+      app: petapp  # This label should match the selector in the Service
+  template:
+    metadata:
+      labels:
+        app: petapp  # This label should match the selector in the Service
+    spec:
+      containers:
+      - name: petapp
+        image: surendradev101/petapp:21433a6c8106c40ebae43bca46faac2fa5aa146b
+        ports:
+        - containerPort: 8080                                                                 # This should match the targetPort in the Service
