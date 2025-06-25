@@ -23,7 +23,7 @@ Note: In Minikube, LoadBalancer will not return a real external IP unless you us
 kubectl get svc -n argocd argocd-server    
 
 Access the application :   
-http://<external-ip>
+http://external-ip
 
 Port-Forwarding (Temporary Local Access) - In case of minikube  
 kubectl port-forward svc/argocd-server -n argocd 8080:443  
