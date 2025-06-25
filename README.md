@@ -1,4 +1,4 @@
-
+# ArgoCD Setup #
 
 # Step - 1 : Helm ArgoCD Instllation #
 
@@ -36,7 +36,7 @@ kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.pas
 Username- admin    
 Pasword-     
 
-Enable the Ingress controller, in case of minikube, it deploys NGINX Ingress Controller in the ingress-nginx namespace  
+**Enable the Ingress controller, in case of minikube, it deploys NGINX Ingress Controller in the ingress-nginx namespace** 
 minikube addons enable ingress  
 
 # Step - 2 : Configure ArgoCD #
