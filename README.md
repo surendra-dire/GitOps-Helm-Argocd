@@ -23,15 +23,16 @@ Note: In Minikube, LoadBalancer will not return a real external IP unless you us
 kubectl get svc -n argocd argocd-server    
 
 Access the application :   
-Visit https://<EXTERNAL-IP>   
+http://<external-ip>
 
 Port-Forwarding (Temporary Local Access) - In case of minikube  
 kubectl port-forward svc/argocd-server -n argocd 8080:443  
 https://localhost:8080  
 
 Login to ArgoCD: Retrieve the Initial Admin Password:    
-kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d  [linux]  
-kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | ForEach-Object { [System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($_)) } [windows -minikube]  
+
+kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d  [linux]    
+kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | ForEach-Object { [System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($_)) } [windows -minikube]    
 Username- admin    
 Pasword-     
 
