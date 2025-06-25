@@ -3,14 +3,14 @@
 **ArgoCD Instllation:**
 
 Step 1: Add the ArgoCD Helm Repository
-helm repo add argo https://argoproj.github.io/argo-helm
-helm repo update
+helm repo add argo https://argoproj.github.io/argo-helm  
+helm repo update  
 
-Step2: Create a Namespace for ArgoCD
-kubectl create namespace argocd
+Step2: Create a Namespace for ArgoCD  
+kubectl create namespace argocd  
 
-Step 3: Install ArgoCD Using Helm
-helm install argocd argo/argo-cd --namespace argocd
+Step 3: Install ArgoCD Using Helm  
+helm install argocd argo/argo-cd --namespace argocd  
 
 Step 4: Verify the Installation
 kubectl get pods -n argocd
