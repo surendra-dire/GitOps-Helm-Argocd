@@ -39,7 +39,7 @@ Pasword-
 **Enable the Ingress controller, in case of minikube, it deploys NGINX Ingress Controller in the ingress-nginx namespace** 
 minikube addons enable ingress  
 
-# Step - 2 : Configure ArgoCD #
+# Step - 2 : Configure ArgoCD from CLI #
 
 
 
